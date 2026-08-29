@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCSMP</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        margin: 0;
+        background: #f4f4f4;
+        color: #222;
+        font-family: Arial, "Noto Sans KR", sans-serif;
+    }
+    /* 상단 */
+    header {
+        background: #111;
+        color: white;
+        padding: 70px 20px;
+        text-align: center;
+    }
+    header h1 {
+        margin: 0;
+        font-size: clamp(40px, 8vw, 72px);
+        letter-spacing: -2px;
+    }
+    header p {
+        margin: 15px 0 0;
+        color: #aaa;
+        font-size: 17px;
+    }
+    /* 전체 */
+    .container {
+        width: min(900px, calc(100% - 30px));
+        margin: 35px auto 70px;
+    }
+    /* 서버 주소 */
+    .server-box {
+        background: white;
+        border-radius: 18px;
+        padding: 28px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+        margin-bottom: 25px;
+    }
+    .server-box h2 {
+        margin-top: 0;
+        font-size: 22px;
+    }
+    .address {
+        background: #f1f1f1;
+        border-radius: 12px;
+        padding: 17px;
+        font-family: monospace;
+        font-size: 17px;
+        word-break: break-all;
+    }
+    .status {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 8px 13px;
+        border-radius: 20px;
+        background: #e9e9e9;
+        color: #333;
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.2s;
+    }
+    .status:hover {
+        background: #ddd;
+    }
+    /* 최신 업데이트 */
+    .latest {
+        background: #111;
+        color: white;
+        border-radius: 18px;
+        padding: 30px;
+        margin-bottom: 35px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    .latest-label {
+        display: inline-block;
+        background: white;
+        color: #111;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 6px 10px;
+        border-radius: 20px;
+        margin-bottom: 15px;
+    }
+    .latest h2 {
+        margin: 0 0 18px;
+        font-size: 27px;
+    }
+    .latest ul {
+        margin: 0;
+        padding-left: 22px;
+        line-height: 1.9;
+    }
+    /* 업데이트 목록 */
+    .section-title {
+        font-size: 28px;
+        margin: 0 0 20px;
+    }
+    .update {
+        background: white;
+        border-radius: 16px;
+        padding: 25px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .update:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    }
+    .update h3 {
+        margin: 0 0 13px;
+        font-size: 20px;
+    }
+    .update p {
+        margin: 7px 0;
+        line-height: 1.7;
+    }
+    .update ul {
+        margin: 8px 0 0;
+        padding-left: 22px;
+        line-height: 1.8;
+    }
+    .version {
+        color: #777;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    /* 구분선 */
+    .divider {
+        height: 1px;
+        background: #ddd;
+        margin: 35px 0;
+    }
+    /* 하단 */
+    footer {
+        text-align: center;
+        color: #999;
+        font-size: 13px;
+        padding: 30px 15px;
+    }
+    /* 모바일 */
+    @media (max-width: 600px) {
+        header {
+            padding: 55px 15px;
+        }
+        .container {
+            width: calc(100% - 20px);
+            margin-top: 20px;
+        }
+        .server-box,
+        .latest,
+        .update {
+            border-radius: 14px;
+            padding: 22px;
+        }
+        .address {
+            font-size: 14px;
+        }
+        .latest h2 {
+            font-size: 23px;
+        }
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1>MCSMP</h1>
+    <p>Minecraft Survival Multiplayer</p>
+</header>
+<div class="container">
+<!-- 서버 정보 -->
+<div class="server-box">
+    <h2>🎮 서버 접속</h2>
+    <div class="address">
+        Java · olds-regret.tun.ply.gg
+    </div>
+    <a class="status"
+       href="https://mcstatus.io/status/bedrock/play.mcsmpbe.kro.kr:18824"
+       target="_blank">
+        서버 상태 확인 →
+    </a>
+</div>
+<!-- 최신 업데이트 -->
+<div class="latest">
+    <div class="latest-label">LATEST UPDATE</div>
+    <h2>SMP 2.0.6</h2>
+    <ul>
+        <li>엔더에서도 소지품 유지가 가능합니다.</li>
+        <li>주민의 거래목록을 새로고침하는 플러그인이 추가되었습니다.</li>
+    </ul>
+    <p style="margin-top:20px; line-height:1.7;">
+        <strong>주민 거래 새로고침 방법</strong><br>
+        준비물: 에메랄드 1개<br>
+        ※ 에메랄드는 새로고침마다 소멸되지 않습니다.
+    </p>
+    <ol style="line-height:1.8;">
+        <li>거래 목록에서 네더의 별같이 생긴 아이템을 클릭 후 거래합니다.</li>
+        <li>거래 창을 닫았다가 다시 엽니다.</li>
+        <li>다시 열지 않으면 비싸게 받을 수 있습니다.</li>
+    </ol>
+</div>
+<!-- 업데이트 내역 -->
+<h2 class="section-title">업데이트 내역</h2>
+<div class="update">
+    <div class="version">SMP 2.0.5</div>
+    <h3>소지품 유지 기능 추가</h3>
+    <p>
+        김** 님의 안건에 대한 투표 결과
+        <strong>찬성 4 · 반대 1</strong>로
+        소지품 유지 기능이 활성화되었습니다.
+    </p>
+</div>
+<div class="update">
+    <div class="version">SMP 2.0.4</div>
+    <h3>서버 버전 업그레이드</h3>
+    <ul>
+        <li>서버 버전 업그레이드</li>
+    </ul>
+</div>
+<div class="update">
+    <div class="version">SMP 2.0.3_2</div>
+    <h3>엑스레이 사용 허용</h3>
+    <p>
+        이제부터 서버에서 광물 채굴을 위한 엑스레이 사용을 허용합니다.
+    </p>
+    <p>
+        부적절한 사용이 확인될 경우 IP 및 사용자 밴이 적용될 수 있습니다.
+        VPN 또는 부계정을 통한 접속도 추적 및 밴 조치가 가능합니다.
+    </p>
+</div>
+<div class="update">
+    <div class="version">SMP 2.0.3</div>
+    <h3>서버 최적화</h3>
+    <ul>
+        <li>게임을 너무 많이 플레이하면 경고 문구가 표시되도록 수정</li>
+        <li>서버 접속 오류 수정</li>
+        <li>서버 기기 최적화</li>
+    </ul>
+</div>
+<div class="update">
+    <div class="version">SMP 2.0.2</div>
+    <h3>서버 주소 변경</h3>
+    <p><strong>기존</strong></p>
+    <p>mcsmpbe.kro.kr : 18824</p>
+    <p><strong>변경</strong></p>
+    <p>play.mcsmpbe.kro.kr : 18824</p>
+    <ul>
+        <li>서버 기기 최적화</li>
+    </ul>
+</div>
+<div class="update">
+    <div class="version">SMP 2.0.1</div>
+    <h3>긴급 업데이트</h3>
+    <ul>
+        <li>서버 기기 최적화</li>
+        <li>서버 접속 불가 오류 해결</li>
+    </ul>
+</div>
+<div class="update">
+    <div class="version">SMP 2.0</div>
+    <h3>대규모 업데이트</h3>
+    <ul>
+        <li>서버 기기를 Galaxy A25로 업그레이드</li>
+        <li>서버 주소 변경</li>
+        <li>서버 업그레이드</li>
+        <li>서버 기기 최적화</li>
+        <li>OP 권한 삭제</li>
+    </ul>
+    <p style="margin-top:15px;">
+        <strong>기존 주소</strong><br>
+        brand-uplifted.gl.at.ply.gg : 18986
+    </p>
+    <p>
+        <strong>새로운 주소</strong><br>
+        mcsmpbe.kro.kr : 18824
+    </p>
+</div>
+<div class="update">
+    <div class="version">SMP 1.1</div>
+    <h3>서버 업그레이드</h3>
+    <ul>
+        <li>서버 버전 업그레이드</li>
+        <li>서버 최적화</li>
+        <li>서버 기기 최적화</li>
+    </ul>
+</div>
+<div class="update">
+    <div class="version">SMP 1.0</div>
+    <h3>서버 출시</h3>
+    <ul>
+        <li>서버 출시</li>
+        <li>인원 제한: 5명</li>
+        <li>기기: Galaxy A12 (3GB / 32GB / Helio P35)</li>
+    </ul>
+</div>
+</div>
+<footer>
+    MCSMP by baekdoo
+</footer>
+</body>
+</html>
