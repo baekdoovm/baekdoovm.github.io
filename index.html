@@ -4,10 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MCSMP</title>
+
 <style>
 * {
     box-sizing: border-box;
 }
+
 :root {
     --bg: #f4f4f4;
     --card: #ffffff;
@@ -19,6 +21,7 @@
     --address: #f1f1f1;
     --shadow: rgba(0,0,0,0.07);
 }
+
 body.dark {
     --bg: #111;
     --card: #1d1d1d;
@@ -30,9 +33,11 @@ body.dark {
     --address: #292929;
     --shadow: rgba(0,0,0,0.35);
 }
+
 html {
     scroll-behavior: smooth;
 }
+
 body {
     margin: 0;
     background: var(--bg);
@@ -40,6 +45,7 @@ body {
     font-family: Arial, "Noto Sans KR", sans-serif;
     transition: background 0.25s, color 0.25s;
 }
+
 /* 상단 */
 header {
     position: relative;
@@ -48,16 +54,19 @@ header {
     padding: 70px 20px;
     text-align: center;
 }
+
 header h1 {
     margin: 0;
     font-size: clamp(40px, 8vw, 72px);
     letter-spacing: -2px;
 }
+
 header p {
     margin: 15px 0 0;
     color: var(--header-sub);
     font-size: 17px;
 }
+
 /* 다크모드 버튼 */
 .theme-button {
     position: absolute;
@@ -72,14 +81,17 @@ header p {
     font-size: 14px;
     transition: 0.2s;
 }
+
 .theme-button:hover {
     background: #333;
 }
+
 /* 전체 */
 .container {
     width: min(900px, calc(100% - 30px));
     margin: 35px auto 70px;
 }
+
 /* 공통 카드 */
 .server-box,
 .update {
@@ -90,32 +102,39 @@ header p {
         box-shadow 0.2s,
         background 0.25s;
 }
+
 /* 서버 */
 .server-box {
     border-radius: 18px;
     padding: 28px;
     margin-bottom: 25px;
 }
+
 .server-box:hover {
     transform: translateY(-2px);
 }
+
 .server-box h2 {
     margin-top: 0;
     font-size: 22px;
 }
+
 /* 서버 주소 */
 .server-item {
     margin-top: 18px;
 }
+
 .server-name {
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 7px;
 }
+
 .address-row {
     display: flex;
     gap: 8px;
 }
+
 .address {
     flex: 1;
     background: var(--address);
@@ -125,6 +144,7 @@ header p {
     font-size: 16px;
     word-break: break-all;
 }
+
 .copy-button {
     border: none;
     background: var(--header);
@@ -135,12 +155,15 @@ header p {
     font-weight: bold;
     transition: 0.2s;
 }
+
 .copy-button:hover {
     opacity: 0.8;
 }
+
 .copy-button.copied {
     background: #555;
 }
+
 /* 서버 상태 */
 .server-status {
     margin-top: 20px;
@@ -152,11 +175,13 @@ header p {
     border-radius: 13px;
     background: var(--address);
 }
+
 .status-left {
     display: flex;
     align-items: center;
     gap: 9px;
 }
+
 .status-dot {
     width: 11px;
     height: 11px;
@@ -164,23 +189,29 @@ header p {
     background: #888;
     flex-shrink: 0;
 }
+
 .status-dot.online {
     background: #22c55e;
     box-shadow: 0 0 8px rgba(34,197,94,0.6);
 }
+
 .status-dot.offline {
     background: #ef4444;
 }
+
 .status-dot.loading {
     background: #f59e0b;
 }
+
 .status-text {
     font-weight: bold;
 }
+
 .player-count {
     color: var(--subtext);
     font-size: 14px;
 }
+
 .refresh-button {
     border: none;
     background: transparent;
@@ -188,9 +219,11 @@ header p {
     cursor: pointer;
     font-size: 14px;
 }
+
 .refresh-button:hover {
     color: var(--text);
 }
+
 /* 상태 확인 버튼 */
 .status-link {
     display: inline-block;
@@ -203,9 +236,11 @@ header p {
     font-size: 14px;
     transition: 0.2s;
 }
+
 .status-link:hover {
     opacity: 0.7;
 }
+
 /* 최신 업데이트 */
 .latest {
     background: var(--header);
@@ -216,6 +251,7 @@ header p {
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     animation: fadeUp 0.5s ease;
 }
+
 .latest-label {
     display: inline-block;
     background: white;
@@ -226,52 +262,62 @@ header p {
     border-radius: 20px;
     margin-bottom: 15px;
 }
+
 .latest h2 {
     margin: 0 0 18px;
     font-size: 27px;
 }
+
 .latest ul {
     margin: 0;
     padding-left: 22px;
     line-height: 1.9;
 }
+
 .latest p {
     line-height: 1.7;
 }
+
 /* 업데이트 목록 */
 .section-title {
     font-size: 28px;
     margin: 0 0 20px;
 }
+
 .update {
     border-radius: 16px;
     padding: 25px;
     margin-bottom: 15px;
     animation: fadeUp 0.4s ease;
 }
+
 .update:hover {
     transform: translateY(-2px);
-    box-shadow:
-        0 8px 22px var(--shadow);
+    box-shadow: 0 8px 22px var(--shadow);
 }
+
 .update h3 {
     margin: 0 0 13px;
     font-size: 20px;
 }
+
 .update p {
     margin: 7px 0;
     line-height: 1.7;
 }
+
 .update ul {
     margin: 8px 0 0;
     padding-left: 22px;
     line-height: 1.8;
 }
+
 .version {
     color: var(--subtext);
     font-size: 14px;
     margin-bottom: 10px;
 }
+
 /* 최신 버전 표시 */
 .new-badge {
     display: inline-block;
@@ -283,16 +329,19 @@ header p {
     font-size: 11px;
     font-weight: bold;
 }
+
 body.dark .new-badge {
     background: white;
     color: #111;
 }
+
 /* 구분선 */
 .divider {
     height: 1px;
     background: var(--border);
     margin: 35px 0;
 }
+
 /* 하단 */
 footer {
     text-align: center;
@@ -300,6 +349,7 @@ footer {
     font-size: 13px;
     padding: 30px 15px;
 }
+
 /* 맨 위로 */
 .top-button {
     position: fixed;
@@ -317,82 +367,104 @@ footer {
     pointer-events: none;
     transition: 0.25s;
 }
+
 .top-button.show {
     opacity: 1;
     pointer-events: auto;
 }
+
 /* 애니메이션 */
 @keyframes fadeUp {
     from {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 /* 모바일 */
 @media (max-width: 600px) {
     header {
         padding: 55px 15px;
     }
+
     .theme-button {
         top: 15px;
         right: 15px;
     }
+
     .container {
         width: calc(100% - 20px);
         margin-top: 20px;
     }
+
     .server-box,
     .latest,
     .update {
         border-radius: 14px;
         padding: 22px;
     }
+
     .address-row {
         flex-direction: column;
     }
+
     .copy-button {
         padding: 12px;
     }
+
     .address {
         font-size: 14px;
     }
+
     .latest h2 {
         font-size: 23px;
     }
+
     .server-status {
         align-items: flex-start;
     }
+
     .refresh-button {
         padding: 0;
     }
 }
 </style>
 </head>
+
 <body>
+
 <header>
-<button class="theme-button" onclick="toggleTheme()">
-    🌙 다크모드
-</button>
-<h1>MCSMP</h1>
-<p>Minecraft Survival Multiplayer</p>
+    <button class="theme-button" onclick="toggleTheme()">
+        🌙 다크모드
+    </button>
+
+    <h1>MCSMP</h1>
+    <p>Minecraft Survival Multiplayer</p>
 </header>
+
 <div class="container">
+
 <!-- 서버 정보 -->
 <div class="server-box">
+
     <h2>🎮 서버 접속</h2>
+
     <!-- Bedrock -->
     <div class="server-item">
         <div class="server-name">
             🟩 Bedrock Edition
         </div>
+
         <div class="address-row">
             <div class="address" id="bedrockAddress">
                 play.mcsmpbe.kro.kr:18824
             </div>
+
             <button
                 class="copy-button"
                 onclick="copyAddress('play.mcsmpbe.kro.kr:18824', this)">
@@ -400,15 +472,18 @@ footer {
             </button>
         </div>
     </div>
+
     <!-- Java -->
     <div class="server-item">
         <div class="server-name">
             🟨 Java Edition
         </div>
+
         <div class="address-row">
             <div class="address">
                 olds-regret.tun.ply.gg
             </div>
+
             <button
                 class="copy-button"
                 onclick="copyAddress('olds-regret.tun.ply.gg', this)">
@@ -416,32 +491,39 @@ footer {
             </button>
         </div>
     </div>
+
     <!-- Bedrock 상태 -->
     <div class="server-status">
+
         <div>
             <div class="status-left">
                 <span
                     id="statusDot"
                     class="status-dot loading">
                 </span>
+
                 <span
                     id="statusText"
                     class="status-text">
                     서버 상태 확인 중...
                 </span>
             </div>
+
             <div
                 id="playerCount"
                 class="player-count">
                 잠시만 기다려 주세요.
             </div>
         </div>
+
         <button
             class="refresh-button"
             onclick="checkServer()">
             ↻ 새로고침
         </button>
+
     </div>
+
     <a
         class="status-link"
         href="https://mcstatus.io/status/bedrock/play.mcsmpbe.kro.kr:18824"
@@ -449,6 +531,7 @@ footer {
         rel="noopener noreferrer">
         자세한 서버 상태 확인 →
     </a>
+
     <a
         class="status-link"
         href="https://mcstatus.io/status/java/olds-regret.tun.ply.gg"
@@ -456,56 +539,101 @@ footer {
         rel="noopener noreferrer">
         Java 서버 상태 확인 →
     </a>
+
 </div>
+
+
 <!-- 최신 업데이트 -->
 <div class="latest">
+
     <div class="latest-label">
         LATEST UPDATE
     </div>
+
     <h2>
-        SMP 2.0.7
+        SMP 2.0.8
     </h2>
+
     <ul>
         <li>
-            서버의 오버월드 난이도를 <strong>쉬움</strong>으로 변경했습니다.
+            주민 리롤 플러그인의 버그로 인해
+            <strong>플러그인을 삭제하였습니다.</strong>
         </li>
     </ul>
+
 </div>
+
+
 <!-- 업데이트 내역 -->
 <h2 class="section-title">
     업데이트 내역
 </h2>
-<!-- 2.0.7 -->
+
+
+<!-- 2.0.8 -->
 <div class="update">
+
     <div class="version">
-        SMP 2.0.7
+        SMP 2.0.8
         <span class="new-badge">NEW</span>
     </div>
+
+    <h3>
+        주민 리롤 플러그인 삭제
+    </h3>
+
+    <ul>
+        <li>
+            주민 리롤 플러그인의 버그로 인해
+            <strong>플러그인을 삭제하였습니다.</strong>
+        </li>
+    </ul>
+
+</div>
+
+
+<!-- 2.0.7 -->
+<div class="update">
+
+    <div class="version">
+        SMP 2.0.7
+    </div>
+
     <h3>
         오버월드 난이도 변경
     </h3>
+
     <ul>
         <li>
-            서버의 오버월드 난이도를 <strong>쉬움</strong>으로 변경했습니다.
+            서버의 오버월드 난이도를
+            <strong>쉬움</strong>으로 변경했습니다.
         </li>
     </ul>
+
 </div>
+
+
 <!-- 2.0.6 -->
 <div class="update">
+
     <div class="version">
         SMP 2.0.6
     </div>
+
     <h3>
         주민 거래 시스템 개선
     </h3>
+
     <ul>
         <li>
             엔더에서도 소지품 유지가 가능합니다.
         </li>
+
         <li>
             주민의 거래목록을 새로고침하는 플러그인이 추가되었습니다.
         </li>
     </ul>
+
     <p style="margin-top:20px;">
         <strong>
             주민 거래 새로고침 방법
@@ -515,321 +643,505 @@ footer {
         <br>
         ※ 에메랄드는 새로고침마다 소멸되지 않습니다.
     </p>
+
     <ol style="line-height:1.8;">
         <li>
             거래 목록에서 네더의 별같이 생긴 아이템을 클릭 후 거래합니다.
         </li>
+
         <li>
             거래 창을 닫았다가 다시 엽니다.
         </li>
+
         <li>
             다시 열지 않으면 주민이 품목을 비싸게 팔 수도 있습니다.
         </li>
     </ol>
+
 </div>
+
+
 <!-- 2.0.5 -->
 <div class="update">
+
     <div class="version">
         SMP 2.0.5
     </div>
+
     <h3>
         소지품 유지 기능 추가
     </h3>
+
     <p>
         김** 님의 안건에 대한 투표 결과
         <strong>찬성 4 · 반대 1</strong>로
         소지품 유지 기능이 활성화되었습니다.
     </p>
+
 </div>
+
+
 <!-- 2.0.4 -->
 <div class="update">
+
     <div class="version">
         SMP 2.0.4
     </div>
+
     <h3>
         서버 버전 업그레이드
     </h3>
+
     <ul>
         <li>
             서버 버전 업그레이드
         </li>
     </ul>
+
 </div>
+
+
 <!-- 2.0.3_2 -->
 <div class="update">
+
     <div class="version">
         SMP 2.0.3_2
     </div>
+
     <h3>
         엑스레이 사용 허용
     </h3>
+
     <p>
         이제부터 서버에서 광물 채굴을 위한
         엑스레이 사용을 허용합니다.
     </p>
+
     <p>
         부적절한 사용이 확인될 경우
         IP 및 사용자 밴이 적용될 수 있습니다.
         VPN 또는 부계정을 통한 접속도 추적 및
         밴 조치가 가능합니다.
     </p>
+
 </div>
+
+
 <!-- 2.0.3 -->
 <div class="update">
+
     <div class="version">
         SMP 2.0.3
     </div>
+
     <h3>
         서버 최적화
     </h3>
+
     <ul>
         <li>
             게임을 너무 많이 플레이하면
             경고 문구가 표시되도록 수정
         </li>
+
         <li>
             서버 접속 오류 수정
         </li>
+
         <li>
             서버 기기 최적화
         </li>
     </ul>
+
 </div>
+
+
 <!-- 2.0.2 -->
 <div class="update">
+
     <div class="version">
         SMP 2.0.2
     </div>
+
     <h3>
         서버 주소 변경
     </h3>
+
     <p>
         <strong>기존</strong>
     </p>
+
     <p>
         mcsmpbe.kro.kr : 18824
     </p>
+
     <p>
         <strong>변경</strong>
     </p>
+
     <p>
         play.mcsmpbe.kro.kr : 18824
     </p>
+
     <ul>
         <li>
             서버 기기 최적화
         </li>
     </ul>
+
 </div>
+
+
 <!-- 2.0.1 -->
 <div class="update">
+
     <div class="version">
         SMP 2.0.1
     </div>
+
     <h3>
         긴급 업데이트
     </h3>
+
     <ul>
         <li>
             서버 기기 최적화
         </li>
+
         <li>
             서버 접속 불가 오류 해결
         </li>
     </ul>
+
 </div>
+
+
 <!-- 2.0 -->
 <div class="update">
+
     <div class="version">
         SMP 2.0
     </div>
+
     <h3>
         대규모 업데이트
     </h3>
+
     <ul>
         <li>
             서버 기기를 Galaxy A25로 업그레이드
         </li>
+
         <li>
             서버 주소 변경
         </li>
+
         <li>
             서버 업그레이드
         </li>
+
         <li>
             서버 기기 최적화
         </li>
+
         <li>
             OP 권한 삭제
         </li>
     </ul>
+
     <p style="margin-top:15px;">
         <strong>기존 주소</strong>
         <br>
         brand-uplifted.gl.at.ply.gg : 18986
     </p>
+
     <p>
         <strong>새로운 주소</strong>
         <br>
         mcsmpbe.kro.kr : 18824
     </p>
+
 </div>
+
+
 <!-- 1.1 -->
 <div class="update">
+
     <div class="version">
         SMP 1.1
     </div>
+
     <h3>
         서버 업그레이드
     </h3>
+
     <ul>
         <li>
             서버 버전 업그레이드
         </li>
+
         <li>
             서버 최적화
         </li>
+
         <li>
             서버 기기 최적화
         </li>
     </ul>
+
 </div>
+
+
 <!-- 1.0 -->
 <div class="update">
+
     <div class="version">
         SMP 1.0
     </div>
+
     <h3>
         서버 출시
     </h3>
+
     <ul>
         <li>
             서버 출시
         </li>
+
         <li>
             인원 제한: 5명
         </li>
+
         <li>
             기기: Galaxy A12 (3GB / 32GB / Helio P35)
         </li>
     </ul>
+
 </div>
+
 </div>
+
+
 <footer>
     MCSMP by baekdoo
 </footer>
+
+
 <!-- 맨 위로 -->
-↑
+<button
+    id="topButton"
+    class="top-button"
+    onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    ↑
 </button>
+
+
 <script>
+
 /* =========================
    서버 상태 확인
 ========================= */
+
 async function checkServer() {
-    const dot = document.getElementById("statusDot");
-    const text = document.getElementById("statusText");
-    const players = document.getElementById("playerCount");
-    dot.className = "status-dot loading";
-    text.textContent = "서버 상태 확인 중...";
-    players.textContent = "잠시만 기다려 주세요.";
+
+    const dot =
+        document.getElementById("statusDot");
+
+    const text =
+        document.getElementById("statusText");
+
+    const players =
+        document.getElementById("playerCount");
+
+    dot.className =
+        "status-dot loading";
+
+    text.textContent =
+        "서버 상태 확인 중...";
+
+    players.textContent =
+        "잠시만 기다려 주세요.";
+
     try {
+
         const response = await fetch(
             "https://api.mcstatus.io/v2/status/bedrock/play.mcsmpbe.kro.kr:18824"
         );
+
         if (!response.ok) {
             throw new Error("API error");
         }
-        const data = await response.json();
+
+        const data =
+            await response.json();
+
         if (data.online) {
-            dot.className = "status-dot online";
-            text.textContent = "온라인";
+
+            dot.className =
+                "status-dot online";
+
+            text.textContent =
+                "온라인";
+
             if (
                 data.players &&
                 data.players.online !== null &&
                 data.players.max !== null
             ) {
+
                 players.textContent =
                     `현재 접속자 ${data.players.online}명 / ${data.players.max}명`;
+
             } else {
+
                 players.textContent =
                     "현재 접속자 정보를 확인할 수 없습니다.";
             }
+
         } else {
-            dot.className = "status-dot offline";
-            text.textContent = "오프라인";
+
+            dot.className =
+                "status-dot offline";
+
+            text.textContent =
+                "오프라인";
+
             players.textContent =
                 "현재 서버에 접속할 수 없습니다.";
         }
+
     } catch (error) {
-        dot.className = "status-dot offline";
-        text.textContent = "상태 확인 실패";
+
+        dot.className =
+            "status-dot offline";
+
+        text.textContent =
+            "상태 확인 실패";
+
         players.textContent =
             "잠시 후 다시 시도해 주세요.";
     }
 }
+
+
 /* =========================
    주소 복사
 ========================= */
+
 async function copyAddress(address, button) {
+
     try {
+
         await navigator.clipboard.writeText(address);
-        const originalText = button.textContent;
-        button.textContent = "복사됨!";
+
+        const originalText =
+            button.textContent;
+
+        button.textContent =
+            "복사됨!";
+
         button.classList.add("copied");
+
         setTimeout(() => {
-            button.textContent = originalText;
+
+            button.textContent =
+                originalText;
+
             button.classList.remove("copied");
+
         }, 1500);
+
     } catch (error) {
+
         alert("주소 복사에 실패했습니다.");
     }
 }
+
+
 /* =========================
    다크모드
 ========================= */
+
 function toggleTheme() {
+
     document.body.classList.toggle("dark");
+
     const dark =
         document.body.classList.contains("dark");
+
     localStorage.setItem(
         "mcsmp-theme",
         dark ? "dark" : "light"
     );
+
     updateThemeButton();
 }
+
+
 function updateThemeButton() {
+
     const button =
         document.querySelector(".theme-button");
+
     const dark =
         document.body.classList.contains("dark");
+
     button.textContent =
-        dark ? "☀️ 라이트모드" : "🌙 다크모드";
+        dark
+            ? "☀️ 라이트모드"
+            : "🌙 다크모드";
 }
+
+
 /* 저장된 테마 불러오기 */
+
 if (
     localStorage.getItem("mcsmp-theme") === "dark"
 ) {
+
     document.body.classList.add("dark");
 }
+
 updateThemeButton();
+
+
 /* =========================
    맨 위로 버튼
 ========================= */
+
 const topButton =
     document.getElementById("topButton");
+
 window.addEventListener("scroll", () => {
+
     if (window.scrollY > 400) {
+
         topButton.classList.add("show");
+
     } else {
+
         topButton.classList.remove("show");
     }
 });
+
+
 /* =========================
    최초 서버 상태 확인
 ========================= */
+
 checkServer();
-/* 60초마다 자동 확인 */
-setInterval(checkServer, 60000);
+
+
+/* =========================
+   60초마다 자동 확인
+========================= */
+
+setInterval(
+    checkServer,
+    60000
+);
+
 </script>
+
 </body>
 </html>
