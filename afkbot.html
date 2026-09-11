@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCSMP | AFK Bot</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, "Noto Sans KR", sans-serif;
+    background:
+        radial-gradient(circle at top, #26334a 0%, #10141c 45%, #080a0f 100%);
+    color: white;
+    min-height: 100vh;
+}
+.container {
+    width: min(1050px, calc(100% - 32px));
+    margin: auto;
+    padding: 55px 0 70px;
+}
+/* 헤더 */
+.logo {
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 4px;
+    color: #9da9bd;
+    margin-bottom: 18px;
+}
+h1 {
+    text-align: center;
+    font-size: clamp(40px, 8vw, 72px);
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: -3px;
+}
+.subtitle {
+    text-align: center;
+    color: #aeb8c8;
+    font-size: 17px;
+    margin-top: 18px;
+    line-height: 1.7;
+}
+/* 안내 */
+.notice {
+    margin: 45px auto 30px;
+    max-width: 850px;
+    padding: 20px 22px;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 18px;
+    background: rgba(255,255,255,.055);
+    backdrop-filter: blur(15px);
+    text-align: center;
+    color: #dce4f2;
+    line-height: 1.7;
+}
+.notice strong {
+    color: white;
+}
+/* 가격 카드 */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-top: 28px;
+}
+.card {
+    position: relative;
+    padding: 30px;
+    border-radius: 25px;
+    background: rgba(20,25,35,.82);
+    border: 1px solid rgba(255,255,255,.09);
+    box-shadow: 0 20px 50px rgba(0,0,0,.25);
+    overflow: hidden;
+    transition: transform .2s, border-color .2s;
+}
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255,255,255,.2);
+}
+.card.featured {
+    border-color: rgba(255,255,255,.22);
+}
+.badge {
+    display: inline-block;
+    padding: 6px 11px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.09);
+    color: #cdd6e5;
+    font-size: 12px;
+    margin-bottom: 18px;
+}
+.card h2 {
+    font-size: 29px;
+    margin: 0 0 8px;
+}
+.description {
+    color: #929dad;
+    margin-bottom: 25px;
+}
+.price-box {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+.price {
+    padding: 15px 17px;
+    border-radius: 15px;
+    background: rgba(255,255,255,.055);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.price span:first-child {
+    color: #9faabd;
+}
+.price span:last-child {
+    font-weight: 700;
+    font-size: 18px;
+}
+/* AFK 봇 개수 */
+.bot-limit {
+    margin-top: 16px;
+    padding: 13px 15px;
+    border-radius: 13px;
+    background: rgba(255,255,255,.04);
+    color: #b8c2d2;
+    font-size: 14px;
+    line-height: 1.6;
+}
+.bot-limit strong {
+    color: white;
+}
+/* 특징 */
+.features {
+    margin-top: 48px;
+}
+.features h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+.feature {
+    padding: 23px;
+    border-radius: 19px;
+    background: rgba(255,255,255,.045);
+    border: 1px solid rgba(255,255,255,.07);
+}
+.icon {
+    font-size: 27px;
+    margin-bottom: 13px;
+}
+.feature h3 {
+    margin: 0 0 8px;
+}
+.feature p {
+    margin: 0;
+    color: #929dad;
+    line-height: 1.6;
+    font-size: 14px;
+}
+/* 이용 방법 */
+.how {
+    margin-top: 48px;
+    padding: 30px;
+    border-radius: 23px;
+    background: rgba(255,255,255,.045);
+    border: 1px solid rgba(255,255,255,.08);
+}
+.how h2 {
+    margin-top: 0;
+}
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+.step {
+    color: #b4bdcc;
+    line-height: 1.6;
+}
+.step strong {
+    display: block;
+    color: white;
+    margin-bottom: 6px;
+}
+/* 버튼 */
+.cta {
+    margin-top: 40px;
+    text-align: center;
+}
+.cta button {
+    border: 0;
+    padding: 16px 32px;
+    border-radius: 999px;
+    background: white;
+    color: #11151c;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .2s, opacity .2s;
+}
+.cta button:hover {
+    transform: scale(1.04);
+    opacity: .9;
+}
+/* 팝업 */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.68);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+.modal-box {
+    width: min(430px, 100%);
+    padding: 32px;
+    border-radius: 25px;
+    background: #171c26;
+    border: 1px solid rgba(255,255,255,.12);
+    text-align: center;
+    box-shadow: 0 25px 70px rgba(0,0,0,.55);
+    animation: popup .18s ease-out;
+}
+@keyframes popup {
+    from {
+        opacity: 0;
+        transform: scale(.94);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.modal-icon {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+.modal-box h2 {
+    margin: 0 0 15px;
+    font-size: 25px;
+}
+.modal-box p {
+    color: #aeb8c8;
+    line-height: 1.7;
+}
+.modal-info {
+    margin-top: 18px;
+    font-size: 14px;
+}
+.modal-box strong {
+    color: white;
+}
+.modal-box button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 14px;
+    border: 0;
+    border-radius: 13px;
+    background: white;
+    color: #11151c;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+/* 하단 */
+.footer {
+    text-align: center;
+    margin-top: 55px;
+    color: #697386;
+    font-size: 13px;
+    line-height: 1.7;
+}
+/* 모바일 */
+@media (max-width: 700px) {
+    .container {
+        padding-top: 38px;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    .feature-grid,
+    .steps {
+        grid-template-columns: 1fr;
+    }
+    .card {
+        padding: 25px;
+    }
+    h1 {
+        letter-spacing: -2px;
+    }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="logo">MCSMP</div>
+    <h1>AFK BOT</h1>
+    <div class="subtitle">
+        자리를 비워도 서버는 계속 돌아가게.<br>
+        MCSMP AFK 봇을 이용해보세요.
+    </div>
+    <div class="notice">
+        🤖 <strong>AFK 봇 이용권</strong>을 구매하면
+        서버에 가상 플레이어를 유지할 수 있습니다.
+        <br>
+        이용권에 따라 <strong>최대 5개의 AFK 봇</strong>까지 이용 가능합니다.
+    </div>
+    <!-- 가격 -->
+    <div class="cards">
+        <div class="card">
+            <div class="badge">1 DAY</div>
+            <h2>1일 이용권</h2>
+            <div class="description">
+                짧게 사용하고 싶다면
+            </div>
+            <div class="price-box">
+                <div class="price">
+                    <span>💎 다이아</span>
+                    <span>14개</span>
+                </div>
+                <div class="price">
+                    <span>⬛ 네더라이트 주괴</span>
+                    <span>2개</span>
+                </div>
+            </div>
+            <div class="bot-limit">
+                🤖 이용 가능한 AFK 봇은
+                <strong>구매한 이용권에 따라 결정</strong>됩니다.
+            </div>
+        </div>
+        <div class="card featured">
+            <div class="badge">BEST VALUE</div>
+            <h2>3일 이용권</h2>
+            <div class="description">
+                오래 사용할수록 더 저렴하게
+            </div>
+            <div class="price-box">
+                <div class="price">
+                    <span>💎 다이아</span>
+                    <span>40개</span>
+                </div>
+                <div class="price">
+                    <span>⬛ 네더라이트 주괴</span>
+                    <span>5개</span>
+                </div>
+            </div>
+            <div class="bot-limit">
+                🤖 이용 가능한 AFK 봇은
+                <strong>구매한 이용권에 따라 결정</strong>됩니다.
+            </div>
+        </div>
+    </div>
+    <!-- 특징 -->
+    <section class="features">
+        <h2>AFK 봇이란?</h2>
+        <div class="feature-grid">
+            <div class="feature">
+                <div class="icon">🤖</div>
+                <h3>가상 플레이어</h3>
+                <p>
+                    실제 플레이어가 접속해 있는 것처럼
+                    서버에서 AFK 상태를 유지합니다.
+                </p>
+            </div>
+            <div class="feature">
+                <div class="icon">⚙️</div>
+                <h3>자동화 시설 유지</h3>
+                <p>
+                    철공장 등 플레이어가 근처에 있어야
+                    작동하는 시설을 유지할 수 있습니다.
+                </p>
+            </div>
+            <div class="feature">
+                <div class="icon">💎</div>
+                <h3>서버 내 재화로 구매</h3>
+                <p>
+                    다이아 또는 네더라이트 주괴를 사용해
+                    이용권을 구매할 수 있습니다.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- 이용 방법 -->
+    <section class="how">
+        <h2>이용 방법</h2>
+        <div class="steps">
+            <div class="step">
+                <strong>01 · 이용권 선택</strong>
+                원하는 기간과 봇 개수에 맞는
+                이용권을 선택합니다.
+            </div>
+            <div class="step">
+                <strong>02 · 관리자에게 문의</strong>
+                아래의 AFK 봇 이용하기 버튼을 눌러
+                관리자에게 문의합니다.
+            </div>
+            <div class="step">
+                <strong>03 · AFK 시작</strong>
+                이용권이 적용되면
+                AFK 봇을 생성하여 사용할 수 있습니다.
+            </div>
+        </div>
+    </section>
+    <!-- CTA -->
+    <div class="cta">
+        <button onclick="showModal()">
+            AFK 봇 이용하기
+        </button>
+    </div>
+    <div class="footer">
+        MCSMP · Minecraft Survival Multiplayer<br>
+        AFK 봇은 서버 내 재화로 이용할 수 있습니다.
+    </div>
+</div>
+<!-- 팝업 -->
+<div id="modal" class="modal" onclick="backgroundClose(event)">
+    <div class="modal-box">
+        <div class="modal-icon">🤖</div>
+        <h2>AFK 봇 이용 안내</h2>
+        <p>
+            AFK 봇 이용을 원하시면<br>
+            <strong>관리자에게 카카오톡으로 문의해주세요.</strong>
+        </p>
+        <p class="modal-info">
+            이용권의 가격과 기간에 따라<br>
+            이용 가능한 봇 개수가 달라집니다.<br><br>
+            <strong>최대 5개의 AFK 봇</strong>까지 이용할 수 있습니다.
+        </p>
+        <button onclick="closeModal()">
+            확인
+        </button>
+    </div>
+</div>
+<script>
+function showModal() {
+    document.getElementById("modal").style.display = "flex";
+}
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
+function backgroundClose(event) {
+    if (event.target.id === "modal") {
+        closeModal();
+    }
+}
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closeModal();
+    }
+});
+</script>
+</body>
+</html>
