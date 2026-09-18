@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>위치 테스트</title>
+</head>
+<body>
+
+<h1>내 위치 확인</h1>
+
+<button onclick="getLocation()">위치 가져오기</button>
+
+<p id="result">아직 위치를 가져오지 않았습니다.</p>
+
+<script>
+function getLocation() {
+    if (!navigator.geolocation) {
+        document.getElementById("result").innerText =
+            "이 브라우저는 위치 기능을 지원하지 않습니다.";
+        return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+            let lat = position.coords.latitude;
+            let lon = position.coords.longitude;
+
+            document.getElementById("result").innerText =
+                "위도: " + lat + "\n경도: " + lon;
+        },
+        function(error) {
+            document.getElementById("result").innerText =
+                "위치 권한이 거부되었거나 위치를 가져올 수 없습니다.";
+        }
+    );
+}
+</script>
+
+</body>
+</html>
