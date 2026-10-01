@@ -462,12 +462,12 @@ footer {
 
         <div class="address-row">
             <div class="address" id="bedrockAddress">
-                play.mcsmpbe.kro.kr:18824
+                play.mcsmpbe.kro.kr:6477
             </div>
 
             <button
                 class="copy-button"
-                onclick="copyAddress('play.mcsmpbe.kro.kr:18824', this)">
+                onclick="copyAddress('play.mcsmpbe.kro.kr:6477', this)">
                 복사
             </button>
         </div>
@@ -481,12 +481,12 @@ footer {
 
         <div class="address-row">
             <div class="address">
-                olds-regret.tun.ply.gg
+                rails-slash.tun.ply.gg
             </div>
 
             <button
                 class="copy-button"
-                onclick="copyAddress('olds-regret.tun.ply.gg', this)">
+                onclick="copyAddress('rails-slash.tun.ply.gg', this)">
                 복사
             </button>
         </div>
@@ -526,7 +526,7 @@ footer {
 
     <a
         class="status-link"
-        href="https://mcstatus.io/status/bedrock/play.mcsmpbe.kro.kr:18824"
+        href="https://mcstatus.io/status/bedrock/play.mcsmpbe.kro.kr:6477"
         target="_blank"
         rel="noopener noreferrer">
         자세한 서버 상태 확인 →
@@ -534,7 +534,7 @@ footer {
 
     <a
         class="status-link"
-        href="https://mcstatus.io/status/java/olds-regret.tun.ply.gg"
+        href="https://mcstatus.io/status/java/rails-slash.tun.ply.gg"
         target="_blank"
         rel="noopener noreferrer">
         Java 서버 상태 확인 →
@@ -551,13 +551,12 @@ footer {
     </div>
 
     <h2>
-        SMP 2.0.8
+        SMP 2.1
     </h2>
 
     <ul>
         <li>
-            주민 리롤 플러그인의 버그로 인해
-            <strong>플러그인을 삭제하였습니다.</strong>
+            서버 버전을 <strong>26.3</strong>으로 업그레이드했습니다.
         </li>
     </ul>
 
@@ -570,12 +569,32 @@ footer {
 </h2>
 
 
+<!-- 2.1 -->
+<div class="update">
+
+    <div class="version">
+        SMP 2.1
+        <span class="new-badge">NEW</span>
+    </div>
+
+    <h3>
+        서버 버전 업그레이드
+    </h3>
+
+    <ul>
+        <li>
+            서버 버전을 <strong>26.3</strong>으로 업그레이드했습니다.
+        </li>
+    </ul>
+
+</div>
+
+
 <!-- 2.0.8 -->
 <div class="update">
 
     <div class="version">
         SMP 2.0.8
-        <span class="new-badge">NEW</span>
     </div>
 
     <h3>
@@ -965,7 +984,7 @@ async function checkServer() {
     try {
 
         const response = await fetch(
-            "https://api.mcstatus.io/v2/status/bedrock/play.mcsmpbe.kro.kr:18824"
+            "https://api.mcstatus.io/v2/status/bedrock/play.mcsmpbe.kro.kr:6477"
         );
 
         if (!response.ok) {
