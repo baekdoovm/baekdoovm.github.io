@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MCSMP 재오픈 기념 이벤트</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background:
+        linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.92)),
+        url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1920&q=80");
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px 70px;
+}
+
+/* HEADER */
+.hero {
+    text-align: center;
+    padding: 70px 20px 55px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(46, 204, 113, .18);
+    border: 1px solid #2ecc71;
+    color: #2ecc71;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: clamp(38px, 7vw, 72px);
+    font-weight: 900;
+    letter-spacing: -3px;
+}
+
+.hero h1 span {
+    color: #55efc4;
+}
+
+.hero p {
+    margin-top: 18px;
+    color: #ccc;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* EVENT DATE */
+.event-date {
+    display: inline-block;
+    margin-top: 22px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    background: rgba(255, 193, 7, .12);
+    border: 1px solid rgba(255, 193, 7, .5);
+    color: #ddd;
+    font-size: 15px;
+}
+
+.event-date strong {
+    color: #ffd54f;
+}
+
+/* INFO */
+.info {
+    background: rgba(20,20,20,.88);
+    border: 1px solid #333;
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 35px;
+    text-align: center;
+    line-height: 1.8;
+}
+
+.info strong {
+    color: #55efc4;
+}
+
+/* REWARD LIST */
+.reward-list {
+    display: grid;
+    gap: 16px;
+}
+
+.reward {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(25,25,25,.94);
+    border: 1px solid #333;
+    border-radius: 16px;
+    padding: 20px 22px;
+    transition: .2s;
+}
+
+.reward:hover {
+    transform: translateY(-3px);
+    border-color: #55efc4;
+    box-shadow: 0 8px 30px rgba(85,239,196,.12);
+}
+
+.time {
+    min-width: 100px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 900;
+    color: #55efc4;
+}
+
+.time small {
+    display: block;
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 4px;
+}
+
+.reward-content {
+    flex: 1;
+}
+
+.reward-content h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+}
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.item {
+    background: #2a2a2a;
+    border: 1px solid #444;
+    padding: 7px 11px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* ITEM COLORS */
+.diamond {
+    border-color: #4dd0e1;
+    color: #80deea;
+}
+
+.netherite {
+    border-color: #9b59b6;
+    color: #d7a6e6;
+}
+
+.star {
+    border-color: #f1c40f;
+    color: #ffe082;
+}
+
+.template {
+    border-color: #e67e22;
+    color: #ffb74d;
+}
+
+.honor {
+    border-color: #55efc4;
+    color: #55efc4;
+}
+
+/* 50 HOURS SPECIAL */
+.reward.special {
+    border-color: #f1c40f;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(241,196,15,.12),
+            rgba(20,20,20,.95)
+        );
+    box-shadow: 0 0 25px rgba(241,196,15,.08);
+}
+
+.reward.special .time {
+    color: #f1c40f;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.footer strong {
+    color: #aaa;
+}
+
+.footer-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #55efc4;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+    .container {
+        padding: 20px 14px 50px;
+    }
+
+    .hero {
+        padding: 50px 10px 35px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .event-date {
+        font-size: 14px;
+        padding: 11px 16px;
+    }
+
+    .reward {
+        align-items: flex-start;
+        padding: 17px;
+        gap: 14px;
+    }
+
+    .time {
+        min-width: 70px;
+        font-size: 20px;
+    }
+
+    .reward-content h3 {
+        font-size: 17px;
+    }
+
+    .item {
+        font-size: 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <section class="hero">
+
+        <div class="badge">
+            🎉 SERVER REOPEN EVENT
+        </div>
+
+        <h1>
+            MCSMP <span>재오픈 기념</span>
+        </h1>
+
+        <p>
+            서버 재오픈을 기념하여<br>
+            누적 플레이 시간에 따라 특별한 보상을 지급합니다!
+        </p>
+
+        <div class="event-date">
+            📅 이벤트 기간:
+            <strong>10월 7일까지</strong>
+        </div>
+
+    </section>
+
+
+    <!-- EVENT INFO -->
+    <div class="info">
+        ⏱️ <strong>누적 플레이 시간</strong>을 기준으로 보상이 지급됩니다.<br>
+        오래 플레이할수록 더욱 강력한 보상을 받을 수 있습니다!
+    </div>
+
+
+    <!-- REWARD LIST -->
+    <section class="reward-list">
+
+
+        <!-- 5 HOURS -->
+        <div class="reward">
+
+            <div class="time">
+                5H
+                <small>누적 플레이</small>
+            </div>
+
+            <div class="reward-content">
+
+                <h3>
+                    첫 번째 보상
+                </h3>
+
+                <div class="items">
+
+                    <span class="item diamond">
+                        💎 다이아몬드 ×1
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 10 HOURS -->
+        <div class="reward">
+
+            <div class="time">
+                10H
+                <small>누적 플레이</small>
+            </div>
+
+            <div class="reward-content">
+
+                <h3>
+                    10시간 달성 보상
+                </h3>
+
+                <div class="items">
+
+                    <span class="item diamond">
+                        💎 다이아몬드 ×20
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 15 HOURS -->
+        <div class="reward">
+
+            <div class="time">
+                15H
+                <small>누적 플레이</small>
+            </div>
+
+            <div class="reward-content">
+
+                <h3>
+                    15시간 달성 보상
+                </h3>
+
+                <div class="items">
+
+                    <span class="item diamond">
+                        💎 다이아몬드 ×64
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 20 HOURS -->
+        <div class="reward">
+
+            <div class="time">
+                20H
+                <small>누적 플레이</small>
+            </div>
+
+            <div class="reward-content">
+
+                <h3>
+                    20시간 달성 보상
+                </h3>
+
+                <div class="items">
+
+                    <span class="item netherite">
+                        🟣 네더라이트 주괴 ×2
+                    </span>
+
+                    <span class="item template">
+                        🔨 대장장이 형판 ×3
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 25 HOURS -->
+        <div class="reward">
+
+            <div class="time">
+                25H
+                <small>누적 플레이</small>
+            </div>
+
+            <div class="reward-content">
+
+                <h3>
+                    25시간 달성 보상
+                </h3>
+
+                <div class="items">
+
+                    <span class="item netherite">
+                        🟣 네더라이트 주괴 ×9
+                    </span>
+
+                    <span class="item template">
+                        🔨 대장장이 형판 ×10
+                    </span>
+
+                    <span class="item diamond">
+                        💎 다이아몬드 ×20
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 30 HOURS -->
+        <div class="reward">
+
+            <div class="time">
+                30H
+                <small>누적 플레이</small>
+            </div>
+
+            <div class="reward-content">
+
+                <h3>
+                    30시간 달성 보상
+                </h3>
+
+                <div class="items">
+
+                    <span class="item star">
+                        ⭐ 네더의 별 ×1
+                    </span>
+
+                    <span class="item diamond">
+                        💎 다이아몬드 ×4
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 35 HOURS -->
+        <div class="reward">
+
+            <div class="time">
+                35H
+                <small>누적 플레이</small>
+            </div>
+
+            <div class="reward-content">
+
+                <h3>
+                    35시간 달성 보상
+                </h3>
+
+                <div class="items">
+
+                    <span class="item star">
+                        ⭐ 네더의 별 ×5
+                    </span>
+
+                    <span class="item diamond">
+                        💎 다이아몬드 ×40
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 40 HOURS -->
+        <div class="reward">
+
+            <div class="time">
+                40H
+                <small>누적 플레이</small>
+            </div>
+
+            <div class="reward-content">
+
+                <h3>
+                    40시간 달성 보상
+                </h3>
+
+                <div class="items">
+
+                    <span class="item star">
+                        ⭐ 네더의 별 ×10
+                    </span>
+
+                    <span class="item netherite">
+                        🟣 네더라이트 주괴 ×5
+                    </span>
+
+                    <span class="item diamond">
+                        💎 다이아몬드 ×128
+                    </span>
+
+                    <span class="item template">
+                        🔨 대장장이 형판 ×6
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 50 HOURS -->
+        <div class="reward special">
+
+            <div class="time">
+                50H+
+                <small>최종 보상</small>
+            </div>
+
+            <div class="reward-content">
+
+                <h3>
+                    🏆 50시간 이상 특별 보상
+                </h3>
+
+                <div class="items">
+
+                    <span class="item star">
+                        ⭐ 네더의 별 ×128
+                    </span>
+
+                    <span class="item honor">
+                        👑 명예 멤버 임명
+                    </span>
+
+                    <span class="item netherite">
+                        🟣 네더라이트 주괴 ×10
+                    </span>
+
+                    <span class="item diamond">
+                        💎 다이아몬드 ×256
+                    </span>
+
+                    <span class="item template">
+                        🔨 대장장이 형판 ×15
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <div class="footer">
+
+        <strong>MCSMP</strong> · Server Reopen Event<br>
+
+        이벤트 기간 내 누적 플레이 시간을 달성하고
+        특별 보상을 받아보세요!
+
+        <br>
+
+        <a
+            class="footer-link"
+            href="https://baekdoovm.github.io/index"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            baekdoovm.github.io/index
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
