@@ -59,6 +59,7 @@ body {
 
 .number {
     width: 42px;
+    flex-shrink: 0;
     text-align: center;
     font-size: 22px;
     font-weight: 800;
@@ -66,22 +67,13 @@ body {
 
 .info {
     flex: 1;
+    min-width: 0;
 }
 
 .name {
     font-size: 17px;
     font-weight: 700;
-}
-
-.owner {
-    display: inline-block;
-    margin-left: 7px;
-    padding: 3px 7px;
-    border-radius: 6px;
-    background: #303640;
-    color: #b9c0ca;
-    font-size: 11px;
-    vertical-align: middle;
+    overflow-wrap: anywhere;
 }
 
 .time {
@@ -118,6 +110,17 @@ body {
     font-size: 20px;
 }
 
+.owner {
+    display: inline-block;
+    margin-left: 7px;
+    padding: 3px 7px;
+    border-radius: 6px;
+    background: #303640;
+    color: #b9c0ca;
+    font-size: 11px;
+    vertical-align: middle;
+}
+
 .footer {
     text-align: center;
     margin-top: 35px;
@@ -138,6 +141,10 @@ body {
         padding: 16px;
         gap: 12px;
     }
+
+    .name {
+        font-size: 16px;
+    }
 }
 </style>
 </head>
@@ -148,7 +155,7 @@ body {
 
     <div class="header">
         <h1>⛏️ Minecraft 서버 플레이 시간 순위</h1>
-        <p>2026년 10월 5일 21시 50분 기준</p>
+        <p>2026년 10월 9일 기준</p>
     </div>
 
     <!-- 1위 -->
@@ -156,7 +163,7 @@ body {
         <div class="number">🥇</div>
         <div class="info">
             <div class="name">.SideBloom557332</div>
-            <div class="time">16시간 12분 50초</div>
+            <div class="time">19시간 36분 03초</div>
         </div>
     </div>
 
@@ -165,7 +172,7 @@ body {
         <div class="number">🥈</div>
         <div class="info">
             <div class="name">kim1111434</div>
-            <div class="time">14시간 28분 37초</div>
+            <div class="time">18시간 19분 59초</div>
         </div>
     </div>
 
@@ -192,7 +199,7 @@ body {
         <div class="number">5</div>
         <div class="info">
             <div class="name">.samagui8366</div>
-            <div class="time">5시간 22분 41초</div>
+            <div class="time">5시간 47분 54초</div>
         </div>
     </div>
 
@@ -209,8 +216,8 @@ body {
     <div class="rank">
         <div class="number">7</div>
         <div class="info">
-            <div class="name">DDODDOBEE</div>
-            <div class="time">0시간 37분 29초</div>
+            <div class="name">.Junhun1011</div>
+            <div class="time">2시간 18분 10초</div>
         </div>
     </div>
 
@@ -218,8 +225,8 @@ body {
     <div class="rank">
         <div class="number">8</div>
         <div class="info">
-            <div class="name">.Junhun1011</div>
-            <div class="time">0시간 27분 16초</div>
+            <div class="name">DDODDOBEE</div>
+            <div class="time">0시간 37분 29초</div>
         </div>
     </div>
 
@@ -232,15 +239,15 @@ body {
         </div>
     </div>
 
-    <!-- 관리자 (baekdoo) -->
+    <!-- 관리자: 항상 맨 아래 -->
     <div class="admin-card">
         <div class="number">👑</div>
         <div class="info">
             <div class="name">
                 baekdoo
-                <span class="owner">서버 주인</span>
+                <span class="owner">서버 주인 · 관리자</span>
             </div>
-            <div class="time">28시간 13분 19초</div>
+            <div class="time">31시간 23분 22초</div>
         </div>
     </div>
 
